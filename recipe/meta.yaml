@@ -10,7 +10,7 @@ source:
   sha256: bbe4758ecde4e9fe7d46c2cf1b6052a8fccb7b6b4dd9eb6ab0133c02e9505526
 
 build:
-  number: 1
+  number: 2
   entry_points:
     - bsdiff4 = bsdiff4.cli:main_bsdiff4
     - bspatch4 = bsdiff4.cli:main_bspatch4
