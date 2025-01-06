@@ -1,5 +1,5 @@
 {% set name = "bsdiff4" %}
-{% set version = "1.1.5" %}
+{% set version = "1.2.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bbe4758ecde4e9fe7d46c2cf1b6052a8fccb7b6b4dd9eb6ab0133c02e9505526
+  sha256: cdd83f820ecb8f1ef67a4e5f0b152c61d327caf7abf35aa9a763413915b21368
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - bsdiff4 = bsdiff4.cli:main_bsdiff4
     - bspatch4 = bsdiff4.cli:main_bspatch4
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
   build:
@@ -22,6 +22,8 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
+    - wheel
   run:
     - python
 
@@ -31,12 +33,18 @@ test:
   commands:
     - bsdiff4 --help
     - bspatch4 --help
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/ilanschnell/bsdiff4
-  license: BSD
+  license: BSD-2-Clause
+  license_family: BSD
+  license_file: LICENSE
   summary: binary diff and patch using the BSDIFF4-format
   dev_url: https://github.com/ilanschnell/bsdiff4
+  doc_url: https://github.com/ilanschnell/bsdiff4
   description: |
     bsdiff4 is derived from bsdiff, a very simple Python extension module that
     allows Python to perform the same tasks as the bsdiff utility
