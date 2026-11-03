@@ -1,13 +1,13 @@
 {% set name = "bsdiff4" %}
-{% set version = "1.2.5" %}
+{% set version = "1.4.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cdd83f820ecb8f1ef67a4e5f0b152c61d327caf7abf35aa9a763413915b21368
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: d66fe7d6c50ea533aa860ac76689e05cfb0a3f8c7bd6730ddf5089a948f66ac5
 
 build:
   number: 0
@@ -48,6 +48,16 @@ about:
   description: |
     bsdiff4 is derived from bsdiff, a very simple Python extension module that
     allows Python to perform the same tasks as the bsdiff utility
+
+
+
+
+
+
+
+
+
+
 
 extra:
   recipe-maintainers:
